@@ -3,319 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Res new</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles new.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Res Bildr sm</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
+
 <body>
-<div class="container mt-5">
-    <h1 class="text-center mb-4">Resume Builder</h1>
+    <div class="container">
+      <h1 class="text-center mt-3">Build your Resume with ResBldr</h1>
 
-    <div class="accordion" id="resumeAccordion">
-        <div class="accordion-item p-5">
-            <h2 class="accordion-header" id="builderHeading">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#builderBody" aria-expanded="true" aria-controls="builderBody">
-                    Builder
-                </button>
+      <div class="accordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Builder
+              </button>
             </h2>
-            <div id="builderBody" class="accordion-collapse collapse show" aria-labelledby="builderHeading">
-                <div class="accordion-body">
-                    <form class="justify-content-center" id="resumeForm">
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body">
+                <form class="justify-content-center" action="" id="resumeForm">
+                  <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-3 align-items-center">
+                            <label for="" class="form-label me-3" id="name">Name</label>
+                            <input type="text" class="form-control" placeholder="Name">
+                        </div>
+                    </div>
+                  </div>  
+
+                  <div class="row justify-content-center">
+                    <div class="col-md-8 mt-4 d-flex justify-content-between">
+                        <div class="col-md-6 align-items-center">
+                            <label for="" class="form-label me-3" id="name">Contact No</label>
+                            <input type="tel" class="form-control">
+                        </div>
+                        <div class="col-md-6 align-items-center">
+                            <label for="" class="form-label me-3" id="contact">Email</label>
+                            <input type="email" class="form-control">
+                        </div>
+                    </div>        
+                    
+                  </div>
+
+                  <div class="row justify-content-center">
+                    <div class="col-md-8 mt-4 d-flex justify-content-center">
+                            <div class="col-md-6">
+                                <label for="" class="form-label me-3" id="address">Address 1</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label me-3" id="address">Address 2</label>
+                                <input type="text" class="form-control">
+                            </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-5 justify-content-center">
+                    <div class="col-md-8 mt-4">
+                        <label for="" class="form-label" id="summary">Summary</label>
+                        <textarea class="form-control" rows="" id=""></textarea>
+                    </div>
+                  </div>
+
+                  <div class="row mt-4 mb-3 d-flex justify-content-center">
+                    <div class="col-6 mb-4">
+                        <div class="col-6 me-5 mb-4" id="educationFields">
+                            <label class="form-label">Education</label>
+                            <input type="text" class="form-control form-control mb-2" placeholder="Institution Name">
+                            <input type="text" class="form-control form-control mb-2" placeholder="Course duration">
+                            <input type="text" class="form-control form-control mb-4" placeholder="Grade/Percentage">
+                        </div>        
+                        <div class="col-12 ms-5">
+                            <button type="button" class="btn btn-primary btn-sm mb-3" onclick="addEducationField()">Add</button>
+                        </div>
+                    </div>
+                            
+                    <div class="col-6" id="">
+                        <div class="col-6 me-5" id="experienceFields">
+                            <label for="" class="form-label">Work Experience</label>
+                            <input type="text" class="form-control form-control mb-2" placeholder="Company Name">
+                            <input type="text" class="form-control form-control mb-2" placeholder="Duration">
+                            <input type="text" class="form-control form-control mb-4" placeholder="Post">
+                        </div>
+                        <div class="col-12 ms-5">
+                            <button type="button" class="btn btn-primary btn-sm mb-3" onclick="addExperienceField()">Add</button>
+                        </div>
+                            
+                    </div>
+                  </div>
+
+                  <div class="row mt-4 mb-3 d-flex justify-content-center">
+                    <div class="col-6">
+                        <div class="col-6 mb-3" id="skills-section">
+                            <label for="" class="form-label">Technical skills</label>
+                            <div>
+                                <input type="text" class="form-control mb-3" placeholder="skills">
+                            </div>
+                        </div>
+                        <div class="col-12 ms-5">
+                            <button type="button" class="btn btn-primary btn-sm mb-3" onclick="addSkill()">Add</button>
+                        </div>
+                    </div>
+                    
+                            
+                    <div class="col-6" id="hobbies-section" style="width: 200px;">
+                        <label class="form-label">Hobbies</label>
+                        <div class="row d-flex mb-3">
+                            <div class="col-8 hobbies-group" id="">
+                                <input type="text" class="form-control form-control-sm me-2" placeholder="hobby">
+                            </div>
+                            <div class="col-4">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addHobby()">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-4 mb-3 d-flex justify-content-center">
+                    <div class="col-6" id="">
+                        <label class="form-label">Languages</label>
+                        <div class="row d-flex">
+                            <div class="col-6 mb-3" id="">
+                                <div class=" ">
+                                    <input type="text" class="form-control mb-3" placeholder="language">
+                                </div>
+                            </div>
+                            <div class="col-12 ms-5">
+                                <button type="button" class="btn btn-primary btn-sm mb-3" onclick="">Add</button>
+                            </div>
+                        </div>
                         
-                        <div class="mt-3 mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Name">
-                        </div>
-
-                        <div class="row justify-content-center mb-3 pt-2">
-                            <div class="col-md-6">
-                                <label for="contactNo" class="form-label">Contact No</label>
-                                <input type="text" class="form-control" id="contactNo" placeholder="Enter contact no.">
+                    </div>
+                    <div class="col-6" id="links-section">
+                        <label class="form-label">Link</label>
+                        <div class="row d-flex">
+                            <div class="col-6 links-group" id="">
+                                <input type="text" class="form-control form-control-sm me-2" placeholder="link">
                             </div>
-                            <div class="col-md-6">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            <div class="col-2">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addLink()">Add</button>
                             </div>
-                        </div>
+                        </div>                        
+                    </div>
+                  </div>
 
-                        <div class="row mt-3 mb-3 pt-2">
-                            <div class="col-md-6">
-                                <label for="addressLine1" class="form-label">Address Line 1</label>
-                                <input type="text" class="form-control" id="addressLine1" placeholder="Address line 1">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="addressLine2" class="form-label">Address Line 2</label>
-                                <input type="text" class="form-control" id="addressLine2" placeholder="Address line 2">
-                            </div>
-                        </div>
+                  <button type="" class="btn btn-success justify-content-center" id="submit">Preview</button>
 
-                        <div class="mb-3 pt-2 ">
-                            <label for="summary" class="form-label">Summary</label>
-                            <textarea class="form-control" id="summary" rows="3" placeholder="Write a brief summary"></textarea>
-                        </div>
+                </form>
 
-                        <div class="row mt-4 mb-3 d-flex">
-                            <div class="col-6 mb-4 d-flex align-items-start">
-                                <div class="col-lg-8" id="educationFields">
-                                    <label class="form-label">Education</label>
-                                    <input type="text" class="form-control me-2 mb-2" placeholder="Institute Name">
-                                    <input type="text" class="form-control me-2 mb-2" placeholder="Course Duration">
-                                    <input type="text" class="form-control me-2 mb-4" placeholder="Grade/Percentage">
-                                </div>
-                                <div class="col-4 ms-3 mt-5 pt-5" >                                   
-                                    <button type="button" class="btn btn-primary" onclick="addEduField()" >Add</button>
-                                </div>
-                            </div>
-
-                            <div class="col-6  d-flex align-items-start">
-                                <div class="col-lg-8" id="experienceFields">
-                                    <label class="form-label">Work Experience</label>
-                                    <input type="text" class="form-control me-2 mb-2" placeholder="Company Name">
-                                    <input type="text" class="form-control me-2 mb-2" placeholder="Duration">
-                                    <input type="text" class="form-control me-2 mb-4" placeholder="Post">
-                                </div>
-                                <div class="col-2 ms-3 mt-5 pt-5">
-                                    <button type="button" class="btn btn-primary" onclick="addExpField()">Add</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 d-flex align-items-start">
-                                <div class="col-8 mb-3" id="skills-section">                                    
-                                    <label for="technicalSkills" class="form-label">Technical Skills</label>
-                                    <input type="text" class="form-control me-2 mb-3" id="technicalSkills" placeholder="Technical skill">
-                                </div>
-                                <div class="col-2 ms-3 pt-4 ">
-                                    <button type="button" class="btn btn-primary" onclick="addSkill()">Add</button>
-                                </div>
-                            </div>
-                            <div class="col-md-6 d-flex align-items-start">
-                                <div class="col-8 mb-3" id="hobbies-section">
-                                    <label for="hobbies" class="form-label">Hobbies</label>
-                                    <input type="text" class="form-control mb-3" id="hobbies" placeholder="Hobby">
-                                </div>
-                                <div class="col-2 ms-3 pt-4">
-                                    <button type="button" class="btn btn-primary" onclick="addHobby()">Add</button>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 d-flex align-items-start">
-                                <div class="col-8 mb-3" id="languages-section">
-                                    <label for="languages" class="form-label">Languages</label>
-                                    <input type="text" class="form-control me-2 mb-3" id="languages" placeholder="Language">
-                                </div> 
-                                <div class="col-2 ms-3 pt-4 ">
-                                    <button type="button" class="btn btn-primary" onclick="addLanguage()">Add</button>
-                                </div>
-                            </div>
-                            <div class="col-md-6 d-flex align-items-start">
-                                <div class="col-8 mb-3" id="links-section">
-                                    <label for="links" class="form-label">Links</label>
-                                    <input type="text" class="form-control me-2 mb-3" id="links" placeholder="Link">
-                                </div>
-                                <div class="col-2 ms-3 pt-4">
-                                    <button type="button" class="btn btn-primary" onclick="addLink()">Add</button>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="text-center">
-                            <button type="button" class="btn btn-success" id="previewButton">Preview</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+              </div> 
+          </div>  
         </div>
+          
+
 
         <div class="accordion-item">
-            <h2 class="accordion-header" id="previewHeading">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#previewBody" aria-expanded="false" aria-controls="previewBody">
-                    Preview
-                </button>
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                Preview
+              </button>
             </h2>
-            <div id="previewBody" class="accordion-collapse collapse" aria-labelledby="previewHeading">
-                <div class="accordion-body">
-                    <div id="previewContent">
-                        <h3 class="text-center">Your Resume will be previewed.</h3>
-                    </div>
-                </div>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <strong>Resume preview</strong>
+              </div>
             </div>
         </div>
+         
+      </div>
+
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>      
+      document.getElementById('resumeForm').addEventListener('submit', function (event) {
+        event.preventDefault();
 
-<script>
-    function addEduField() {
-        const educationFields = document.getElementById('educationFields');
-        const newField = `
-            <div class="row">
-                <div class="education-group col-12 mb-4 d-flex align-items-center">
-                    <div class="col-12 mb-3 ">
-                        <input type="text" class="form-control me-2 mb-2" placeholder="Institution Name" required>
-                        <input type="text" class="form-control me-2 mb-2" placeholder="Course duration" required>
-                        <input type="text" class="form-control me-2 mb-2" placeholder="Grade/Percentage" required>
+        let isValid = true;
+        const errorMessages = [];
+
+        // Helper function for validation
+        const validateField = (field, fieldName) => {
+            if (!field.value.trim()) {
+                isValid = false;
+                errorMessages.push(`${fieldName} cannot be empty.`);
+            }
+        };
+
+        const name = document.getElementById('name');
+        const contact = document.getElementById('contact');
+        const address = document.getElementById('address');
+        const summary = document.getElementById('summary');
+
+        validateField(name, 'Name');
+        console.log(name);
+        validateField(contact, 'Contact Number');
+        validateField(address, 'Address');
+        validateField(summary, 'Summary');
+
+        const educationInputs = Array.from(document.querySelectorAll('.education-input'));
+        if (educationInputs.length === 0) {
+            isValid = false;
+            errorMessages.push('At least one education entry is required.');
+        } else {
+            educationInputs.forEach((field, index) => {
+                validateField(field, `Education field ${Math.floor(index / 3) + 1}`);
+            });
+        }
+
+        const skillsInputs = Array.from(document.querySelectorAll('.skills-input'));
+        if (skillsInputs.length === 0) {
+            isValid = false;
+            errorMessages.push('At least one skill is required.');
+        } 
+        else {
+            skillsInputs.forEach((field, index) => {
+                validateField(field, `Skill ${index + 1}`);
+            });
+        }
+
+        const experienceInputs = Array.from(document.querySelectorAll('.experience-input'));
+        if (experienceInputs.length === 0) {
+            isValid = false;
+            errorMessages.push('At least one work experience entry is required.');
+        } else {
+            experienceInputs.forEach((field, index) => {
+                validateField(field, `Work Experience field ${Math.floor(index / 3) + 1}`);
+            });
+        }
+
+        const hobbiesInputs = Array.from(document.querySelectorAll('.hobbies-input'));
+        if (hobbiesInputs.length === 0) {
+            isValid = false;
+            errorMessages.push('At least one hobby is required.');
+        } else {
+            hobbiesInputs.forEach((field, index) => {
+                validateField(field, `Hobby ${index + 1}`);
+            });
+        }
+
+        const linksInputs = Array.from(document.querySelectorAll('.links-input'));
+        if (linksInputs.length === 0) {
+            isValid = false;
+            errorMessages.push('At least one link is required.');
+        } else {
+            linksInputs.forEach((field, index) => {
+                validateField(field, `Link ${index + 1}`);
+            });
+        }
+
+        // Show validation errors if any
+        if (!isValid) {
+            alert(`Please fix the following errors:\n\n${errorMessages.join('\n')}`);
+            return;
+        }
+
+        // Proceed with generating preview if valid
+        const educationDetails = [];
+        for (let i = 0; i < educationInputs.length; i += 3) {
+            educationDetails.push(`${educationInputs[i].value} (${educationInputs[i + 1].value}) - ${educationInputs[i + 2].value}`);
+        }
+
+        const skills = skillsInputs.map(input => input.value);
+
+        const workExperience = [];
+        for (let i = 0; i < experienceInputs.length; i += 3) {
+            workExperience.push(`${experienceInputs[i].value} (${experienceInputs[i + 1].value}) - ${experienceInputs[i + 2].value}`);
+        }
+
+        const previewHTML = `
+            <h3>${name.value}</h3>
+            <p><strong>Contact:</strong> ${contact.value}</p>
+            <p><strong>Address:</strong> ${address.value}</p>
+            <p><strong>Summary:</strong> ${summary.value}</p>
+            <h4>Education</h4>
+            <ul>${educationDetails.map(edu => `<li>${edu}</li>`).join('')}</ul>
+            <h4>Skills</h4>
+            <p>${skills.join(', ')}</p>
+            <h4>Work Experience</h4>
+            <ul>${workExperience.map(exp => `<li>${exp}</li>`).join('')}</ul>
+            <h4>Hobbies</h4>
+            <p>${hobbies.join(', ')}</p>
+            <h4>Link Tree</h4>
+            <ul>${links.map(link => `<li><a href="${link}" target="_blank">${link}</a></li>`).join('')}</ul>
+            <h4>Languages</h4>
+            <p>${languages.join(', ')}</p>
+        `;
+
+        document.getElementById('preview').innerHTML = previewHTML;
+
+        const previewAccordion = document.querySelector('#panelsStayOpen-collapseTwo');
+        const bootstrapCollapse = new bootstrap.Collapse(previewAccordion, { toggle: false });
+        bootstrapCollapse.show();
+      });
+
+
+      function addEducationField() {
+            const educationFields = document.getElementById('educationFields');
+            const newField = `
+                <div class="row">
+                    <div class="education-group mb-3 col-12">
+                        <input type="text" class="form-control mb-2" placeholder="Institution Name" required>
+                        <input type="text" class="form-control mb-2" placeholder="Course duration" required>
+                        <input type="text" class="form-control mb-2" placeholder="Grade/Percentage" required>
                     </div>
-                    <div class="col-4 ms-3 mb-2">
-                        <button type="button" class="btn btn-sm btn-danger remove-btn" onclick="remEduField(this)">Remove</button>
+                </div>`;
+            educationFields.insertAdjacentHTML('beforeend', newField);
+      }
+
+      function addSkill() {
+        const skillsSection= document.getElementById('skills-section');
+        const newSkill= `
+                <div class="row mb-3">
+                    <div class="skills-group col-12">
+                        <input type="text" class="form-control form-control me-5" placeholder="skills" required>
                     </div>
-                </div>                
-            </div>`;
-        educationFields.insertAdjacentHTML('beforeend', newField);
-    }
+                </div>`;
+        skillsSection.insertAdjacentHTML('beforeend', newSkill);
+      }
 
-    function remEduField(button) {
-        const educationGroup = button.closest('.education-group');
-        
-        // Remove the education group from the DOM
-        if (educationGroup) {
-            educationGroup.remove();
-        }        
-    }    
-
-    function addExpField() {
+      function addExperienceField() {
         const experienceFields = document.getElementById('experienceFields');
         const newField = `
-            <div class="row">
-                <div class="experience-group mb-3 col-12 mb-4 d-flex align-items-center">
-                    <div class="col-12 mb-3 ">
+                <div class="row">
+                    <div class="experience-group mb-3 col-12">
                         <input type="text" class="form-control mb-2" placeholder="Company Name" required>
                         <input type="text" class="form-control mb-2" placeholder="Duration" required>
                         <input type="text" class="form-control mb-2" placeholder="Position" required>
                     </div>
-                    <div class="col-4 ms-3 mb-2">
-                        <button type="button" class="btn btn-sm btn-danger remove-btn" onclick="remExpField(this)">Remove</button>
-                    </div>
-                    
-                </div>
-            </div>`;
+                </div>`;
         experienceFields.insertAdjacentHTML('beforeend', newField);
-    }
-
-    function remExpField(button) {
-        const expGroup = button.closest('.experience-group');
-        
-        if (expGroup) {
-            expGroup.remove();
-        }        
-    }    
-
-
-    function addSkill() {
-        const skillsSection= document.getElementById('skills-section');
-        const newSkill= `
+      }
+    
+      function addHobby() {
+          const hobbiesSection = document.getElementById('hobbies-section');
+          const newHobby= `
                 <div class="row mb-3">
-                    <div class="skills-group col-12 d-flex align-items-center">
-                        <div class="col-12">
-                            <input type="text" class="form-control form-control me-5" placeholder="Technical skill" required>
-                        </div>
-                        <div class="col-4 ms-3 mb-2">
-                            <button type="button" class="btn btn-sm btn-danger remove-btn" onclick="remSklField(this)">Remove</button>
-                        </div>
+                    <div class="hobbies-group mb-1 col-8">
+                        <input type="text" class="form-control form-control-sm" placeholder="hobby" required>
                     </div>
-                    
                 </div>`;
-        skillsSection.insertAdjacentHTML('beforeend', newSkill);
-    }
+          hobbiesSection.insertAdjacentHTML('beforeend', newHobby);
+      }
 
-    function remSklField(button) {
-        const skillGroup = button.closest('.skills-group');
-        
-        if (skillGroup) {
-            skillGroup.remove();
-        }        
-    }
-
-
-    function addHobby() {
-        const hobbiesSection= document.getElementById('hobbies-section');
-        const newHobby= `
+      function addLink() {
+          const linksSection = document.getElementById('links-section');
+          const newLink= `
                 <div class="row mb-3">
-                    <div class="hobbies-group col-12 d-flex align-items-center">
-                        <div class="col-12">
-                            <input type="text" class="form-control form-control-sm" placeholder="hobby" required>
-                        </div>
-                        <div class="col-4 ms-3 mb-2">
-                            <button type="button" class="btn btn-sm btn-danger remove-btn" onclick="remHobField(this)">Remove</button>
-                        </div>
+                    <div class="links-group mb-1 col-8">
+                        <input type="text" class="form-control form-control-sm" placeholder="link" required>
                     </div>
-                    
                 </div>`;
-        hobbiesSection.insertAdjacentHTML('beforeend', newHobby);
-    }
+          linksSection.insertAdjacentHTML('beforeend', newLink);
+      }
 
-    function remHobField(button) {
-        const expGroup = button.closest('.hobbies-group');
-        
-        if (expGroup) {
-            expGroup.remove();
-        }        
-    }
-
-    function addLanguage() {
-        const languagesSection= document.getElementById('languages-section');
-        const newLang= `
-                <div class="row mb-3">
-                    <div class="languages-group col-12 d-flex align-items-center">
-                        <div class="col-12">
-                            <input type="text" class="form-control form-control me-5" placeholder="Language" required>
-                        </div>
-                        <div class="col-4 ms-3 mb-2">
-                            <button type="button" class="btn btn-sm btn-danger remove-btn" onclick="remLngField(this)">Remove</button>
-                        </div>
-                    </div>                    
-                </div>`;
-        languagesSection.insertAdjacentHTML('beforeend', newLang);
-    }
-
-    function remLngField(button) {
-        const expGroup = button.closest('.languages-group');
-        
-        if (expGroup) {
-            expGroup.remove();
-        }        
-    }
-
-    function addLink() {
-        const linksSection= document.getElementById('links-section');
-        const newLink= `
-                <div class="row mb-3">
-                    <div class="links-group col-12 d-flex align-items-center">
-                        <div class="col-12">
-                            <input type="text" class="form-control form-control me-5" placeholder="Link" required>
-                        </div>
-                        <div class="col-4 ms-3 mb-2">
-                            <button type="button" class="btn btn-sm btn-danger remove-btn" onclick="remLinkField(this)">Remove</button>
-                        </div>
-                    </div>
-                    
-                </div>`;
-        linksSection.insertAdjacentHTML('beforeend', newLink);
-    }
-
-    function remLinkField(button) {
-        const expGroup = button.closest('.links-group');
-        
-        if (expGroup) {
-            expGroup.remove();
-        }        
-    }
-
-
-
-    document.getElementById('previewButton').addEventListener('click', function() {
-        const formValues = new FormData(document.getElementById('resumeForm'));
-        console.log('Preview clicked, add custom functionality here.');
-    });
-
-</script>
+    </script>
 
 </body>
+
 </html>
