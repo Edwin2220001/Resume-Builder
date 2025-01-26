@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: auto;
+}
+
+.accordion{
+    justify-content: center;
+    margin: 6rem;
+}
+
+.accordion-item{
+    padding-left: 0px 16px 0px 6px;
+}
