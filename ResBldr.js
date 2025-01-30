@@ -143,7 +143,7 @@ function remLinkField(button) {
 
 
 
-function ResPreview(formValues)
+function ResPreview()
 {
     //Getting input values
     document.getElementById("NameP").innerText= document.getElementById("name").value;
@@ -212,7 +212,6 @@ function ResPreview(formValues)
     const hobbyFld1= document.querySelector("#hobbies-section");
     document.getElementById("HobbiesP").innerText= hobbyFld1;
     
-    // const hobbyFlds= document.getElementById("#hobbies");
     
     const hobbyFields = document.querySelectorAll("#hobbies .hobbies-group");
     console.log("Total hobbies field found:", hobbyFields.length);
@@ -235,10 +234,14 @@ function ResPreview(formValues)
     let languagesPreview = document.getElementById("LanguagesP");
     languagesPreview.innerText = Array.from(languageFields).map(input => input.value).join(", ");
 
+
     // Handling links
     const linkFields = document.querySelectorAll("#links-section .links-group input");
     let linksPreview = document.getElementById("LinksP");
     linksPreview.innerText = Array.from(linkFields).map(input => input.value).join(", ");
+
+
+
 
     // Open Preview Accordion
     let previewAccordion= new bootstrap.Collapse(document.getElementById("previewBody"), {toggle: true});
