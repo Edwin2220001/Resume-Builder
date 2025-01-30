@@ -9,9 +9,23 @@ body{
 
 .accordion{
     justify-content: center;
-    margin: 6rem;
+    margin: 5rem;
 }
 
 .accordion-item{
-    padding-left: 0px 16px 0px 6px;
+    /* padding-left: 0px 16px 0px 6px; */
+}
+
+#resumeForm{
+}
+
+
+#previewContent{
+    margin: 3rem;
+}
+
+.border{
+    height: 33px;
+    margin-bottom: 12px;
+    padding: 7px;
 }
