@@ -145,7 +145,6 @@ function remLinkField(button) {
 
 function ResPreview()
 {
-    //Getting input values
     document.getElementById("NameP").innerText= document.getElementById("name").value;
     document.getElementById("ContactP").innerText = document.getElementById("contactNo").value;
     document.getElementById("EmailP").innerText = document.getElementById("email").value;
@@ -155,27 +154,9 @@ function ResPreview()
     
     // document.addEventListener("DOMContentLoaded", function() {   });
 
-    let educationPreview = document.getElementById("EducationP");
-    educationPreview.innerHTML = "";
-    const educationFields = document.querySelectorAll("#educationFields .education-group");
-    console.log("Total education fields found:", educationFields.length);
-
-    educationFields.forEach((group, index) => {
-        const inputs = group.querySelectorAll("input");
-        
-        console.log(`Education Group ${index + 1}:`, [...inputs].map(input => input.value));
-
-        if (inputs.length < 3) return;
-
-        let eduText = `${inputs[0].value}, ${inputs[1].value}, ${inputs[2].value}`;
-        let li = document.createElement("li");
-        li.innerText = eduText;
-        educationPreview.appendChild(li);
-    });
-    
-    // const educationFields = document.querySelectorAll("#educationFields .education-group");
-    // const educationPreview = document.getElementById("EducationP");
+    // let educationPreview = document.getElementById("EducationP");
     // educationPreview.innerHTML = "";
+    // const educationFields = document.querySelectorAll("#educationFields .education-group");
     // console.log("Total education fields found:", educationFields.length);
 
     // educationFields.forEach((group, index) => {
@@ -183,11 +164,29 @@ function ResPreview()
         
     //     console.log(`Education Group ${index + 1}:`, [...inputs].map(input => input.value));
 
-    //     let eduText = `${inputs[0].value} <br> ${inputs[1].value} <br> ${inputs[2].value}`;
+    //     if (inputs.length < 3) return;
+
+    //     let eduText = `${inputs[0].value}, ${inputs[1].value}, ${inputs[2].value}`;
     //     let li = document.createElement("li");
-    //     li.innerHTML = eduText;
+    //     li.innerText = eduText;
     //     educationPreview.appendChild(li);
     // });
+    
+    const educationFields = document.querySelectorAll("#educationFields .education-group");
+    const educationPreview = document.getElementById("EducationP");
+    educationPreview.innerHTML = "";
+    console.log("Total education fields found:", educationFields.length);
+
+    educationFields.forEach((group, index) => {
+        const inputs = group.querySelectorAll("input");
+        
+        console.log(`Education Group ${index + 1}:`, [...inputs].map(input => input.value));
+
+        let eduText = `${inputs[0].value} <br> ${inputs[1].value} <br> ${inputs[2].value}`;
+        let li = document.create("li");
+        li.innerHTML = eduText;
+        educationPreview.appendChild(li);
+    });
         
 
     // Handling work experience fields
@@ -202,45 +201,26 @@ function ResPreview()
         workPreview.innerHTML += `<p>${inputs[0].value}, ${inputs[1].value}, ${inputs[2].value}</p>`;
     });
 
-    // Handling skills
-    // const skills= document.getElementById('skills-section').value.split(',').map(skill=> skill.trim());
-    // let skillsPreview= document.getElementById("skillP");
-    // skillsPreview.innerHTML= skills.map(skill=> '<li>${skill}</li>').join('');
 
+    function displDynInputs(fieldId, previewId) {
+        const field = document.getElementById(fieldId);
+        const previewField = document.getElementById(previewId);
+        previewField.innerHTML = ""; // Clear previous content
 
-    // Handling hobbies
-    const hobbyFld1= document.querySelector("#hobbies-section");
-    document.getElementById("HobbiesP").innerText= hobbyFld1;
-    
-    
-    const hobbyFields = document.querySelectorAll("#hobbies .hobbies-group");
-    console.log("Total hobbies field found:", hobbyFields.length);
-
-    let hobbiesPreview = document.getElementById("HobbiesP");
-
-    hobbyFields.forEach((hobb, index) => {
-        const inputs = hobb.getElementById("hobbies");
-        console.log(`Hobby number ${index+ 1}:`, [...inputs].map(input => input.value));
-
-        hobbiesPreview.innerText += `<p>${inputs}</p>`;
-    });
-
-    // hobbiesPreview.innerText = Array.from(hobbyFields).map(input => input.value).join(", ");
-
-
-
-    // Handling languages
-    const languageFields = document.querySelectorAll("#languages-section .languages-group input");
-    let languagesPreview = document.getElementById("LanguagesP");
-    languagesPreview.innerText = Array.from(languageFields).map(input => input.value).join(", ");
-
-
-    // Handling links
-    const linkFields = document.querySelectorAll("#links-section .links-group input");
-    let linksPreview = document.getElementById("LinksP");
-    linksPreview.innerText = Array.from(linkFields).map(input => input.value).join(", ");
-
-
+        const inputs = field.querySelectorAll("input");
+        inputs.forEach(input => {
+            if (input.value.trim() !== "") {
+                const div = document.createElement("div");
+                div.classList.add("border", "mb-2", "rounded");
+                div.innerText = input.value;
+                previewField.appendChild(div);
+            }
+        });
+    }
+    displDynInputs("skills-section", "SkillsP");
+    displDynInputs("hobbies-section", "HobbiesP");
+    displDynInputs("languages-section", "LanguagesP");
+    displDynInputs("links-section", "LinksP");
 
 
     // Open Preview Accordion
