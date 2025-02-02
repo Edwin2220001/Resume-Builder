@@ -135,12 +135,11 @@ function addLink() {
     linksSection.insertAdjacentHTML('beforeend', newLink);
 }
 function remLinkField(button) {
-    const expGroup = button.closest('.links-group');        
+    const expGroup = button.closest('.links-group');
     if (expGroup) {
         expGroup.remove();
     }        
 }
-
 
 
 function ResPreview()
@@ -151,61 +150,53 @@ function ResPreview()
     document.getElementById("Address1P").innerText = document.getElementById("addressLine1").value;
     document.getElementById("Address2P").innerText = document.getElementById("addressLine2").value;
     document.getElementById("SummaryP").innerText=document.getElementById("summary").value;
+   
     
-    // document.addEventListener("DOMContentLoaded", function() {   });
-
-    // let educationPreview = document.getElementById("EducationP");
-    // educationPreview.innerHTML = "";
-    // const educationFields = document.querySelectorAll("#educationFields .education-group");
-    // console.log("Total education fields found:", educationFields.length);
-
-    // educationFields.forEach((group, index) => {
-    //     const inputs = group.querySelectorAll("input");
-        
-    //     console.log(`Education Group ${index + 1}:`, [...inputs].map(input => input.value));
-
-    //     if (inputs.length < 3) return;
-
-    //     let eduText = `${inputs[0].value}, ${inputs[1].value}, ${inputs[2].value}`;
-    //     let li = document.createElement("li");
-    //     li.innerText = eduText;
-    //     educationPreview.appendChild(li);
-    // });
-    
-    const educationFields = document.querySelectorAll("#educationFields .education-group");
     const educationPreview = document.getElementById("EducationP");
     educationPreview.innerHTML = "";
-    console.log("Total education fields found:", educationFields.length);
+    const educationFields = document.querySelectorAll("#educationFields .education-group");
+    console.log("Total education fields found:", educationFields.length);    
 
-    educationFields.forEach((group, index) => {
+    educationFields.forEach((group, index) => {            
         const inputs = group.querySelectorAll("input");
-        
         console.log(`Education Group ${index + 1}:`, [...inputs].map(input => input.value));
 
-        let eduText = `${inputs[0].value} <br> ${inputs[1].value} <br> ${inputs[2].value}`;
-        let li = document.create("li");
-        li.innerHTML = eduText;
-        educationPreview.appendChild(li);
+        const ul = document.createElement("ul");
+        ul.classList.add("list-group");
+        
+        let content= "";
+        inputs.forEach(input => {
+            if (input.value.trim() !== ""){
+                // content += `<span style="x-large">${input.placeholder}:</span> ${input.value} <br>`;
+                content += `<div class="border p-2 rounded" >${input.value}</div>`;
+            }
+        });
+
+        if (content !== ""){
+            const li= document.createElement("li");
+            li.classList.add("list-group-items", "mb-2", "text-break", "style-none")
+            li.innerHTML= content;
+            ul.appendChild(li);
+        }
+        educationPreview.appendChild(ul);
     });
         
 
-    // Handling work experience fields
-    const experienceFields = document.querySelectorAll("#experienceFields .experience-group");
-    let workPreview = document.getElementById("WorkP");
-    workPreview.innerHTML = "";
+    // const experienceFields = document.querySelectorAll("#experienceFields .experience-group");
+    // const workPreview = document.getElementById("WorkP");
+    // workPreview.innerHTML = "";
 
-    experienceFields.forEach((group) => {
-        const inputs = group.querySelectorAll("input");
-        console.log(`Experience Group ${index + 1}:`, [...inputs].map(input => input.value));
+    // experienceFields.forEach((group) => {
+    //     const inputs = group.querySelectorAll("input");
+    //     console.log(`Experience Group ${index + 1}:`, [...inputs].map(input => input.value));
 
-        workPreview.innerHTML += `<p>${inputs[0].value}, ${inputs[1].value}, ${inputs[2].value}</p>`;
-    });
+    // });
 
 
     function displDynInputs(fieldId, previewId) {
         const field = document.getElementById(fieldId);
         const previewField = document.getElementById(previewId);
-        previewField.innerHTML = ""; // Clear previous content
+        previewField.innerHTML = "";
 
         const inputs = field.querySelectorAll("input");
         inputs.forEach(input => {
@@ -222,7 +213,5 @@ function ResPreview()
     displDynInputs("languages-section", "LanguagesP");
     displDynInputs("links-section", "LinksP");
 
-
-    // Open Preview Accordion
     let previewAccordion= new bootstrap.Collapse(document.getElementById("previewBody"), {toggle: true});
 }
